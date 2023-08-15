@@ -6,9 +6,9 @@ document.getElementById('submit-btn').addEventListener('click', function(){
     const pass = inputpass.value;
     
     if(email==='Ami@hossain.com' && pass==='hossain'){
-        console.log('valid user');
+        window.location.href = 'bank.html';
     }
     else{
-        console.log('invalid user');
+        alert('invalid user');
     }
 });
