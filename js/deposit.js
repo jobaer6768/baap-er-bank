@@ -17,22 +17,15 @@
 // })
 
 
-function getInputFieldId(inputId){
-    const inputField = document.getElementById(inputId);
-    const inputValue = parseFloat(inputField.value);
-    inputField.value = '';
-
-    return inputValue;
-}
-
-function getTotalId(inputId){
-    const inputTotal = document.getElementById(inputId);
-    const value = parseFloat(inputTotal.innerText);
-
-    return value;
-}
-
 document.getElementById('btn-deposit').addEventListener('click', function(){
-    const depositValue = getInputFieldId('deposit-field');
-    const depositTotal = getTotalId('deposit-total');
+    // changing the deposit-part
+    const newDepositValue = getInputFieldId('deposit-field');
+    const prevDepositValue = getTotalInnerId('deposit-total');
+    const currentDepositValue = newDepositValue + prevDepositValue;
+    setNewTotal('deposit-total', currentDepositValue);
+
+    // changing the balance-part
+    const prevBalanceTotal = getTotalInnerId('balance-total');
+    const newBalanceTotal = prevBalanceTotal + newDepositValue;
+    setNewTotal('balance-total', newBalanceTotal);
 });
